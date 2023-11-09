@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('company_teams', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('image');
+            $table->string('postion');
+            $table->string('image');
+            $table->json('social');
             $table->timestamps();
         });
     }

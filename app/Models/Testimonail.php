@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CompanyTeam extends Model
+class Testimonail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'image',
-        'position',
-        'social',
+        'company_name',
+        'logo',
+        'person_name',
+        'person_position',
+        'description',
+        'starts',
     ];
 
-    protected $casts = [
-        'social' => 'json',
-    ];
 }

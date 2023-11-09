@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('company_goals', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('image');
             $table->timestamps();
         });
     }

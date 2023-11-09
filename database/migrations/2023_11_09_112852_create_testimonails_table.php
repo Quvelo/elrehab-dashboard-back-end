@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_ctageories', function (Blueprint $table) {
+        Schema::create('testimonails', function (Blueprint $table) {
             $table->id();
+            $table->string('company_name');
+            $table->string('logo');
+            $table->string('person_name');
+            $table->string('person_position');
+            $table->string('description');
+            $table->string('starts');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_ctageories');
+        Schema::dropIfExists('ttestimonails');
     }
 };
