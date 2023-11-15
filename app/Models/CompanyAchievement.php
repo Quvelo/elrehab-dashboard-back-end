@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyAchievement extends Model
 {
     use HasFactory;
+    const FILE_KEY = 'image';
+    const FOLDER_NAME = "achievement";
     protected $fillable = [
         'title',
         'description',

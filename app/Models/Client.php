@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+    const FILE_KEY = 'logo';
+    const FOLDER_NAME = "client";
+
     protected $fillable = [
         'name',
         'logo',

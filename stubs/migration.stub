@@ -11,14 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_teams', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('postion');
-            $table->string('image');
-            $table->json('social');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -26,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('company_teams');
+        //
     }
 };

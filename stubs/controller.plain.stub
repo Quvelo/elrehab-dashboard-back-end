@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Repository\BaseCrudRepo;
+use Illuminate\Http\Request;
+
+class {{ class }}  extends BaseCrudRepo
+{
+    public function setData()
+    {
+        $this->model = new CompanyGoal();
+        $this->storeRequest = CompanyGoalRequest::class;
+        $this->updateRequest = CompanyGoalRequest::class;
+    }
+}

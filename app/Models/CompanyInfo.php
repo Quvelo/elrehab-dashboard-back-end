@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyInfo extends Model
 {
     use HasFactory;
+    const FOLDER_NAME = "CompanyInfo";
     protected $fillable = [
         'title',
         'name',

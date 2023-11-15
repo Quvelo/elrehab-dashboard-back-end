@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompanyGoalController;
+use App\Models\CompanyAchievement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::apiResource('/client', ClientController::class)->except('update');
+Route::post('/client/{id}', [ClientController::class, 'update']);
+
+Route::apiResource('/category', CategoryController::class)->except('update');
+Route::post('/category/{id}', [CategoryController::class, 'update']);
+
+Route::apiResource('/achievement', CompanyAchievement::class)->except('update');
+Route::post('/achievement/{id}', [CompanyAchievement::class, 'update']);
+
+Route::apiResource('/goal', CompanyGoalController::class)->except('update');
+Route::post('/goal/{id}', [CompanyGoalController::class, 'update']);

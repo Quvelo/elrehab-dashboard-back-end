@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyGoal extends Model
 {
     use HasFactory;
+    const FILE_KEY = 'image';
+    const FOLDER_NAME = "goals";
     protected $fillable = [
         'title',
         'description',
         'image',
     ];
-
 }
