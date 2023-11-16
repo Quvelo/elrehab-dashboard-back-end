@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Http\UploadedFile;
 
 class ImageRule implements ValidationRule
 {
@@ -14,8 +15,8 @@ class ImageRule implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (!is_file($value) || !is_string($value)) {
-            $fail('The :file must be file or url path.');
+        if (!($value instanceof UploadedFile) || !is_string($value)) {
+            $fail('The :file must be a file or a valid URL path.');
         }
     }
 }

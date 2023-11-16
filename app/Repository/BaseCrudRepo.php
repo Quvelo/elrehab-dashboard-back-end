@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
-use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Illuminate\Http\UploadedFile;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 abstract class BaseCrudRepo extends Controller
 {
@@ -68,7 +69,7 @@ abstract class BaseCrudRepo extends Controller
     {
         $model = $this->model->findOrFail($id);
         if ($this->fileName) {
-            unlink($model->$this->fileName);
+            // File::delete(public_path($model->$this->fileName));
         }
         $model->delete();
         return response()->json([
