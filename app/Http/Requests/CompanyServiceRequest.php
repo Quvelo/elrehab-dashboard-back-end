@@ -25,7 +25,7 @@ class CompanyServiceRequest extends FormRequest
         return [
             'title' => "required|string",
             'description' => "required|string",
-            'logo' => ["required", new ImageRule],
+            'logo' => "required|mimes:png,jpg,jpeg",
         ];
     }
 }

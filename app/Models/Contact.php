@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
+    const FILE_KEY = '';
+    const FOLDER_NAME = "";
     protected $fillable = ['name','email','subject','message'];
 
 

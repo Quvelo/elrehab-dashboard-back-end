@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('company_teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('postion');
+            $table->string('position');
             $table->string('image');
             $table->json('social');
             $table->timestamps();

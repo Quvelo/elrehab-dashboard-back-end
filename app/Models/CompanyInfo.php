@@ -9,6 +9,7 @@ class CompanyInfo extends Model
 {
     use HasFactory;
     const FOLDER_NAME = "CompanyInfo";
+    const FILE_KEY = "nav_logo";
     protected $fillable = [
         'title',
         'name',

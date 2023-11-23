@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Testimonail extends Model
 {
     use HasFactory;
+    const FILE_KEY = 'logo';
+    const FOLDER_NAME = "Testimonail";
     protected $fillable = [
         'company_name',
         'logo',

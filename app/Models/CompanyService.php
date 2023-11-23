@@ -10,5 +10,5 @@ class CompanyService extends Model
     use HasFactory;
     const FILE_KEY = 'logo';
     const FOLDER_NAME = "CompanyService";
-    protected $fillable = ['title', 'descritpion', 'logo'];
+    protected $fillable = ['title', 'description', 'logo'];
 }
