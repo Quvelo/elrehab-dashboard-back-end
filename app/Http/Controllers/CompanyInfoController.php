@@ -21,8 +21,8 @@ class CompanyInfoController  extends BaseCrudRepo
     {
         $data = app($this->storeRequest)->all();
         if (request()->has('nav_logo') || request()->has('footer_logo')) {
-            $data['nav_logo'] = request()->file('nav_logo')->store($this->folderName, 'public');
-            $data['footer_logo'] = request()->file('footer_logo')->store($this->folderName, 'public');
+            $data['nav_logo'] = request()?->file('nav_logo')?->store($this->folderName, 'public');
+            $data['footer_logo'] = request()?->file('footer_logo')?->store($this->folderName, 'public');
         }
         $data = $this->model->create($data);
         return response()->json([
@@ -36,13 +36,13 @@ class CompanyInfoController  extends BaseCrudRepo
         $model = $this->model->findOrfail($id);
         if (request()->has('nav_logo')) {
             $data['nav_logo'] = $data['nav_logo'] instanceof UploadedFile ?
-                request()->file('nav_logo')->store($this->folderName, 'public')
+                request()?->file('nav_logo')?->store($this->folderName, 'public')
                 :
                 $model['nav_logo'];
         }
         if (request()->has('footer_logo')) {
             $data['footer_logo'] = $data['footer_logo'] instanceof UploadedFile ?
-                request()->file('footer_logo')->store($this->folderName, 'public')
+                request()?->file('footer_logo')?->store($this->folderName, 'public')
                 :
                 $model['footer_logo'];
         }

@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CompanyAchievementController;
-use App\Http\Controllers\CompanyGoalController;
-use App\Http\Controllers\CompanyInfoController;
-use App\Http\Controllers\CompanyServiceController;
-use App\Http\Controllers\CompanyTeamController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\QAController;
-use App\Http\Controllers\TestimonailController;
-use App\Models\CompanyAchievement;
 use App\Models\Testimonail;
 use Illuminate\Http\Request;
+use App\Models\CompanyAchievement;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\QAController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CompanyGoalController;
+use App\Http\Controllers\CompanyInfoController;
+use App\Http\Controllers\CompanyTeamController;
+use App\Http\Controllers\TestimonailController;
+use App\Http\Controllers\CompanyServiceController;
+use App\Http\Controllers\CompanyAchievementController;
+use App\Http\Controllers\ProjectController;
 
 Route::apiResource('/client', ClientController::class)->except('update');
 Route::post('/client/{id}', [ClientController::class, 'update']);
@@ -46,3 +47,18 @@ Route::post('/Qa/{id}', [QAController::class, 'update']);
 
 Route::apiResource('/testimonail', TestimonailController::class)->except('update');
 Route::post('/testimonail/{id}', [TestimonailController::class, 'update']);
+
+
+Route::apiResource('/projects', ProjectController::class)->except('update');
+Route::post('/projects/{id}', [ProjectController::class, 'update']);
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/profile', [AuthController::class, 'userProfile']);
+});
