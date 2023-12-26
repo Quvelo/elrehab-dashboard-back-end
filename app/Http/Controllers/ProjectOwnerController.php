@@ -22,7 +22,7 @@ class ProjectOwnerController  extends BaseCrudRepo
     {
         $data = Project::find($id);
         return response()->json([
-            "data" => $data->owners()
+            "data" => $data->owners
         ]);
     }
 }
