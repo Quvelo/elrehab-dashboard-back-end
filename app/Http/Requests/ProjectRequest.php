@@ -23,7 +23,6 @@ class ProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'user_id' => 'required|exists:users,id',
             'slogan' => 'required|string|max:100',
             'description' => 'required|string',
             'main_photo' => 'required|mimes:jpeg,png,jpg',
