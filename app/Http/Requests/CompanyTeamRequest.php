@@ -26,7 +26,7 @@ class CompanyTeamRequest extends FormRequest
             'name' => "required|string",
             'position' => "required|string",
             'social' => "required|array",
-            'image' => "required|mimes:png,jpg,jpeg",
+            'image' => "required|mimes:png,jpg,jpeg,svg,webp",
         ];
     }
 }

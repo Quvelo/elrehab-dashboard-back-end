@@ -25,7 +25,7 @@ class ProjectRequest extends FormRequest
             'title' => 'required|string',
             'slogan' => 'required|string|max:100',
             'description' => 'required|string',
-            'main_photo' => 'required|mimes:jpeg,png,jpg',
+            'main_photo' => 'required|mimes:jpeg,png,jpg,svg,webp',
             'video' => 'required',
             'area' => 'required|string',
             'government' => 'required|string|min:1',
