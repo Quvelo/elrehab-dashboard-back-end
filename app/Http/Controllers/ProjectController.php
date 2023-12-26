@@ -80,7 +80,7 @@ class ProjectController  extends BaseCrudRepo
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
-                "message" => $e
+                "message" => $e->getMessage()
             ], 406);
         }
     }
@@ -119,7 +119,7 @@ class ProjectController  extends BaseCrudRepo
         } catch (Exception $e) {
             DB::rollBack();
             return response()->json([
-                "message" => $e
+                "message" => $e->getMessage()
             ], 406);
         }
     }
