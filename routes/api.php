@@ -15,7 +15,9 @@ use App\Http\Controllers\CompanyTeamController;
 use App\Http\Controllers\TestimonailController;
 use App\Http\Controllers\CompanyServiceController;
 use App\Http\Controllers\CompanyAchievementController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectOwnerController;
 
 Route::apiResource('/client', ClientController::class)->except('update');
 Route::post('/client/{id}', [ClientController::class, 'update']);
@@ -52,6 +54,10 @@ Route::post('/testimonail/{id}', [TestimonailController::class, 'update']);
 Route::apiResource('/projects', ProjectController::class)->except('update');
 Route::post('/projects/{id}', [ProjectController::class, 'update']);
 
+Route::apiResource('/projectOwner', ProjectOwnerController::class)->except('update');
+Route::post('/projectOwner/{id}', [ProjectOwnerController::class, 'update']);
+
+
 Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
@@ -62,3 +68,6 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/profile', [AuthController::class, 'userProfile']);
 });
+
+Route::get('/home', [HomeController::class, 'home']);
+Route::get('/aboutUs', [HomeController::class, 'aboutUs']);

@@ -12,7 +12,6 @@ class Project extends Model
     const FOLDER_NAME = "projects";
     protected $fillable = [
         'title',
-        'user_id',
         'slogan',
         'description',
         'main_photo',
@@ -25,11 +24,22 @@ class Project extends Model
         'init_unit_start',
     ];
 
-    public function photos(){
+    public function photos()
+    {
         return $this->hasMany(ProjectPhoto::class);
-        }
+    }
 
-        public function user(){
-            return $this->belongsTo(User::class);
-            }
+    public function owners()
+    {
+        return $this->hasMany(RegisterProject::class);
+    }
+    public function services()
+    {
+        return $this->belongsToMany(CompanyService::class, "project_services", "project_id", "service_id");
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, "project_categories", "project_id", "category_id");
+    }
 }
