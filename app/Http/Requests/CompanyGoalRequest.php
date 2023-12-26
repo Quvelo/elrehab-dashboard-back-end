@@ -26,7 +26,7 @@ class CompanyGoalRequest extends FormRequest
             'title' => "required|string",
             'description' => "required|string",
             'image' => [
-                "required", "image",
+                "required",
                 // new ImageRule
             ],
         ];

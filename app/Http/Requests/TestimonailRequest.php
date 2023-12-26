@@ -23,7 +23,7 @@ class TestimonailRequest extends FormRequest
     {
         return [
             'company_name' => "required|string",
-            'logo' => "required|image|mimes:png,jpg,jpeg,webp",
+            'logo' => "required",
             'person_name' => "required|string",
             'person_position' => "required|string",
             'description' => "required|string",

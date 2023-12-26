@@ -36,7 +36,7 @@ class ProjectController  extends BaseCrudRepo
                 'units_number',
                 'init_unit_start',
             ])
-            ->with('owners', 'photos', 'services', 'categories')
+            ->with('owners', 'images', 'services', 'categories')
             ->get();
         return response()->json([
             "data" => $projects
@@ -46,7 +46,7 @@ class ProjectController  extends BaseCrudRepo
 
     public function show($id)
     {
-        $data = $this->model->with('owners', 'photos', 'services', 'categories')->find($id);
+        $data = $this->model->with('owners', 'images', 'services', 'categories')->find($id);
         return response()->json([
             "data" => $data
         ]);

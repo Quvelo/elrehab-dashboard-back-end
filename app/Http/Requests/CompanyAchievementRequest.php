@@ -25,7 +25,7 @@ class CompanyAchievementRequest extends FormRequest
         return [
             'title' => "required|string",
             'description' => "required|string",
-            'image' => ["required", "image"
+            'image' => ["required"
                 /** new ImageRule*/
             ],
         ];
