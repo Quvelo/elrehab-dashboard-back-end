@@ -38,7 +38,7 @@ class ProjectRequest extends FormRequest
             'services' => 'nullable|array',
             'services.*.' => 'exists:project_services,id',
             'categories' => 'nullable|array',
-            'categories.*.' => 'exists:project_categories,id',
+            'categories.*' => 'exists:project_categories,id',
         ];
     }
 }
