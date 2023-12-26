@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slogan');
-            $table->string('description');
+            $table->longText('description');
             $table->string('main_photo');
             $table->string('video');
             $table->string('area');
             $table->string('government');
             $table->string('location_title');
-            $table->string('location_google_map');
+            $table->string('location_google_map',1000);
             $table->string('units_number');
             $table->string('init_unit_start');
             $table->timestamps();

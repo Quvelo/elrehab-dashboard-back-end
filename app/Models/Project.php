@@ -35,7 +35,7 @@ class Project extends Model
     }
     public function services()
     {
-        return $this->belongsToMany(CompanyService::class, "project_services", "project_id", "service_id");
+        return $this->belongsToMany(Service::class, "project_services", "project_id", "service_id");
     }
 
     public function categories()
