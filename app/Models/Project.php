@@ -24,7 +24,7 @@ class Project extends Model
         'init_unit_start',
     ];
 
-    public function photos()
+    public function images()
     {
         return $this->hasMany(ProjectPhoto::class);
     }
