@@ -35,6 +35,10 @@ class ProjectRequest extends FormRequest
             'init_unit_start' => 'required|numeric',
             'images' => 'nullable|array',
             'images.*.image' => 'nullable',
+            'services' => 'nullable|array',
+            'services.*.' => 'exists:project_services,id',
+            'categories' => 'nullable|array',
+            'categories.*.' => 'exists:project_categories,id',
         ];
     }
 }
