@@ -11,7 +11,7 @@ class RegisterProject extends Model
     const FILE_KEY = '';
     const FOLDER_NAME = "";
     protected $fillable = ['name', 'phone', 'project_id'];
-    public $with = ['project'];
+    // public $with = ['project'];
 
     public function project()
     {

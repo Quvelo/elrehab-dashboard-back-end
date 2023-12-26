@@ -18,6 +18,7 @@ use App\Http\Controllers\CompanyAchievementController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectOwnerController;
+use App\Http\Controllers\ServiceController;
 
 Route::apiResource('/client', ClientController::class)->except('update');
 Route::post('/client/{id}', [ClientController::class, 'update']);
@@ -36,6 +37,9 @@ Route::post('/companyInfo/{id}', [CompanyInfoController::class, 'update']);
 
 Route::apiResource('/companyService', CompanyServiceController::class)->except('update');
 Route::post('/companyService/{id}', [CompanyServiceController::class, 'update']);
+
+Route::apiResource('/service', ServiceController::class)->except('update');
+Route::post('/service/{id}', [ServiceController::class, 'update']);
 
 Route::apiResource('/companyTeam', CompanyTeamController::class)->except('update');
 Route::post('/companyTeam/{id}', [CompanyTeamController::class, 'update']);
@@ -56,6 +60,7 @@ Route::post('/projects/{id}', [ProjectController::class, 'update']);
 
 Route::apiResource('/projectOwner', ProjectOwnerController::class)->except('update');
 Route::post('/projectOwner/{id}', [ProjectOwnerController::class, 'update']);
+Route::get('/project_owners/{projectId}', [ProjectOwnerController::class, 'projectOwners']);
 
 
 Route::group([
