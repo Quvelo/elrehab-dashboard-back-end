@@ -19,6 +19,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProjectOwnerController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\VisionController;
 
 Route::apiResource('/client', ClientController::class)->except('update');
 Route::post('/client/{id}', [ClientController::class, 'update']);
@@ -31,6 +32,9 @@ Route::post('/achievement/{id}', [CompanyAchievementController::class, 'update']
 
 Route::apiResource('/goal', CompanyGoalController::class)->except('update');
 Route::post('/goal/{id}', [CompanyGoalController::class, 'update']);
+
+Route::apiResource('/vision', VisionController::class)->except('update');
+Route::post('/vision/{id}', [VisionController::class, 'update']);
 
 Route::apiResource('/companyInfo', CompanyInfoController::class)->except('update');
 Route::post('/companyInfo/{id}', [CompanyInfoController::class, 'update']);

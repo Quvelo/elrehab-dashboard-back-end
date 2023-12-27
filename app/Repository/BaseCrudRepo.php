@@ -11,11 +11,12 @@ abstract class BaseCrudRepo extends Controller
 {
 
     protected $model, $storeRequest, $updateRequest;
-    protected $fileName, $folderName;
+    protected $fileName, $folderName, $except;
 
     public function __construct()
     {
         $this->setData();
+        $this->middleware('auth')->except($this->except ?? 'index');
         $this->fileName = $this->model::FILE_KEY;
         $this->folderName = $this->model::FOLDER_NAME;
     }
@@ -23,6 +24,7 @@ abstract class BaseCrudRepo extends Controller
 
     public function index()
     {
+        $this->middleware('auth:api');
         return response()->json([
             "data" => $this->model->get()
         ]);

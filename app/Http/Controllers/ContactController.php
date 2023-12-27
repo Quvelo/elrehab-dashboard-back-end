@@ -11,6 +11,7 @@ class ContactController  extends BaseCrudRepo
 {
     public function setData()
     {
+        $this->except = ['store'];
         $this->model = new Contact();
         $this->storeRequest = ContactRequest::class;
         $this->updateRequest = ContactRequest::class;
