@@ -15,6 +15,7 @@ class ProjectController  extends BaseCrudRepo
 {
     public function setData()
     {
+        $this->except = ['index', 'show'];
         $this->model = new Project();
         $this->storeRequest = ProjectRequest::class;
         $this->updateRequest = ProjectRequest::class;
@@ -35,20 +36,28 @@ class ProjectController  extends BaseCrudRepo
                 'location_google_map',
                 'units_number',
                 'init_unit_start',
-            ])
-            ->with('owners', 'images', 'services', 'categories')
-            ->get();
+            ]);
+        if (auth()->user()) {
+            $projects = $projects->with('owners', 'images', 'services', 'categories');
+        } else {
+            $projects = $projects->with('images', 'services', 'categories');
+        }
         return response()->json([
-            "data" => $projects
+            "data" => $projects->get()
             // "data" => $this->model->with('owners','photos', 'services', 'categories')->get()
         ]);
     }
 
     public function show($id)
     {
-        $data = $this->model->with('owners', 'images', 'services', 'categories')->find($id);
+        $data = $this->model;
+        if (auth()->user()) {
+            $data = $data->with('owners', 'images', 'services', 'categories');
+        } else {
+            $data = $data->with('images', 'services', 'categories');
+        }
         return response()->json([
-            "data" => $data
+            "data" => $data->find($id)
         ]);
     }
     public function store()
