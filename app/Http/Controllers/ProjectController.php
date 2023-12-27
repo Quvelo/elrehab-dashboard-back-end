@@ -67,7 +67,7 @@ class ProjectController  extends BaseCrudRepo
             if (request()->has('images')) {
                 if (request()->has('images')) {
                     foreach (request()->file('images') as $image) {
-                        $data->photos()->create([
+                        $data->images()->create([
                             "image" => $image['image']->store("projects/project_photos", 'public')
                         ]);
                     }
@@ -104,7 +104,7 @@ class ProjectController  extends BaseCrudRepo
                 $model->photos()->delete();
                 if (request()->has('images')) {
                     foreach (request()->file('images') as $image) {
-                        $model->photos()->create([
+                        $model->images()->create([
                             "image" => $image['image']->store("projects/project_photos", 'public')
                         ]);
                     }
