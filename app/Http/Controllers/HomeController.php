@@ -18,7 +18,7 @@ class HomeController  extends Controller
 {
     public function home()
     {
-        $projctes = Project::with('user', 'photos')->get();
+        $projctes = Project::with( 'images')->get();
         $services = CompanyService::get();
         $testimonails = Testimonail::get();
         $clients = Client::get();
