@@ -38,7 +38,7 @@ class HomeController  extends Controller
         $team = CompanyTeam::get();
         $testimonails = Testimonail::get();
         $clients = Client::get();
-        $projctes = Project::with('user', 'photos')->get();
+        $projctes = Project::with('images')->get();
         $services = CompanyService::get();
         $achievments = CompanyAchievement::get();
         $companyInfo = CompanyInfo::get();
