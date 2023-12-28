@@ -104,7 +104,6 @@ class ProjectController  extends BaseCrudRepo
                 :
                 $model['main_photo'];
             if (request()->has('images')) {
-                $model->photos()->delete();
                 if (request()->has('images')) {
                     foreach (request()->file('images') as $image) {
                         $model->images()->create([
