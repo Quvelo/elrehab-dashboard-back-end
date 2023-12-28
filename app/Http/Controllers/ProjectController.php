@@ -98,7 +98,7 @@ class ProjectController  extends BaseCrudRepo
         try {
             DB::beginTransaction();
             $data = app($this->storeRequest)->all();
-            $model = $this->model->findOrfail($id);
+            $model = Project::findOrfail($id);
             $data['main_photo'] = $data['main_photo'] instanceof UploadedFile ?
                 request()->file('main_photo')->store($this->folderName, 'public')
                 :
