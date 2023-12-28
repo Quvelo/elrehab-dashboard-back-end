@@ -65,9 +65,8 @@ class ProjectController  extends BaseCrudRepo
         try {
             DB::beginTransaction();
             $data = app($this->storeRequest)->all();
-            if (request()->has('main_photo') || request()->has('video')) {
+            if (request()->has('main_photo')) {
                 $data['main_photo'] = request()?->file('main_photo')->store($this->folderName, 'public');
-                $data['video'] = request()?->file('video')->store($this->folderName, 'public');
             }
 
             $data = $this->model->create($data);
@@ -104,17 +103,15 @@ class ProjectController  extends BaseCrudRepo
                 request()->file('main_photo')->store($this->folderName, 'public')
                 :
                 $model['main_photo'];
-
-            $data['video'] = $data['video'] instanceof UploadedFile ?
-                request()->file('video')->store($this->folderName, 'public')
-                :
-                $model['video'];
             if (request()->has('images')) {
                 $model->photos()->delete();
                 if (request()->has('images')) {
                     foreach (request()->file('images') as $image) {
                         $model->images()->create([
-                            "image" => $image['image']->store("projects/project_photos", 'public')
+                            "image" => $image['image'] instanceof UploadedFile ?
+                                $image['image']->store($this->folderName, 'public')
+                                :
+                                $model['image']
                         ]);
                     }
                 }

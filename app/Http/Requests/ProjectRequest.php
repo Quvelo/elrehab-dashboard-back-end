@@ -26,7 +26,7 @@ class ProjectRequest extends FormRequest
             'slogan' => 'required|string|max:100',
             'description' => 'required|string',
             'main_photo' => 'required',
-            'video' => 'required',
+            'video' => 'required|url',
             'area' => 'required|string',
             'government' => 'required|string|min:1',
             'location_title' => 'required|string|min:1',
