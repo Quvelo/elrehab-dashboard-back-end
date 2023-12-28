@@ -115,8 +115,8 @@ class ProjectController  extends BaseCrudRepo
                     }
                 }
             }
-            $data->services()->sync(request()->services);
-            $data->categories()->sync(request()->categories);
+            $model->services()->sync(request()->services);
+            $model->categories()->sync(request()->categories);
             $data = $model->update($data);
             return response()->json([
                 "message" => "updated"
