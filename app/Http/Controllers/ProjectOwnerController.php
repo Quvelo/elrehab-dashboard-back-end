@@ -13,6 +13,7 @@ class ProjectOwnerController  extends BaseCrudRepo
 {
     public function setData()
     {
+        $this->except = ['store'];
         $this->model = new RegisterProject();
         $this->storeRequest = RegisterProjectRequest::class;
         $this->updateRequest = RegisterProjectRequest::class;

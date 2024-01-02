@@ -6,6 +6,7 @@ use App\Models\CompanyAchievement;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QAController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
@@ -66,6 +67,8 @@ Route::apiResource('/projectOwner', ProjectOwnerController::class)->except('upda
 Route::post('/projectOwner/{id}', [ProjectOwnerController::class, 'update']);
 Route::get('/project_owners/{projectId}', [ProjectOwnerController::class, 'projectOwners']);
 
+Route::apiResource('/blog', BlogController::class)->except('update');
+Route::post('/blog/{id}', [BlogController::class, 'update']);
 
 Route::group([
     'middleware' => 'api',
